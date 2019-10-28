@@ -1,0 +1,17 @@
+{{ define "content" }}
+
+<!-- Main -->
+<section id="main" class="wrapper style1">
+    <div class="inner">
+        <header class="major">
+            <h1>{{ .Title }}</h1>
+            {{ partial "markdownify-block" .Params.subtitle }}
+        </header>
+        {{ if .Params.img_path }}
+            <span class="image main"><img src="{{ .Params.img_path | relURL }}" alt="" /></span>
+        {{ end }}
+        {{ .Content }}
+    </div>
+</section>
+
+{{ end }}

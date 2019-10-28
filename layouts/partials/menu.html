@@ -1,0 +1,19 @@
+<!-- Menu -->
+<nav id="menu">
+    <div class="inner">
+        <h2>Menu</h2>
+        <ul class="links">
+            {{ range $item := .Site.Menus.main }}
+                <li><a href="{{ $item.URL | relURL }}">{{ $item.Name }}</a></li>
+            {{ end }}
+        </ul>
+        {{ if .Site.Data.menu.actions }}
+            <ul class="actions stacked">
+                {{ range $action := .Site.Data.menu.actions }}
+                    <li><a href="{{ if strings.HasPrefix $action.url "#" }}{{ $action.url }}{{ else }}{{ $action.url | relURL }}{{ end }}" class="button fit{{ if $action.is_primary }} primary{{ end }}{{ if $action.is_scrolly }} scrolly{{ end }}">{{ $action.label }}</a></li>
+                {{ end }}
+            </ul>
+        {{ end }}
+    </div>
+    <a class="close" href="#menu">Close</a>
+</nav>

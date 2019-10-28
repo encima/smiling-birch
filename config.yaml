@@ -1,0 +1,6 @@
+title: Reflex
+baseURL: /
+params:
+  none: ''
+disableKinds:
+  - RSS

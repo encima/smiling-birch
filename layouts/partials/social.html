@@ -1,0 +1,11 @@
+<section>
+    <header>
+        <h3>{{ .Site.Data.social.title }}</h3>
+    </header>
+    {{ partial "markdownify-block" .Site.Data.social.social_content }}
+    <ul class="icons">
+        {{ range $link := .Site.Data.social.social_links }}
+            <li><a href="{{ $link.link_url }}" class="icon {{ $link.icon }}"><span class="label">{{ $link.title }}</span></a></li>
+        {{ end }}
+    </ul>
+</section>

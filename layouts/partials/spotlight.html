@@ -1,0 +1,36 @@
+<!-- Two -->
+<section class="wrapper style1 special">
+    <div class="inner">
+        <header>
+            <h2>{{ .section.title }}</h2>
+            {{ partial "markdownify-block" .section.subtitle }}
+        </header>
+        {{ range $post := ((.Site.GetPage "section" "/posts").Pages).ByDate.Reverse }}
+            <section class="spotlight">
+                <span class="image"><img src="{{ $post.Params.img_path | relURL }}" alt="" /></span>
+                <div class="content">
+                    <header>
+                        <h3>{{ $post.Title }}</h3>
+                    </header>
+                    {{ partial "markdownify-block" $post.Params.excerpt }}
+                    <footer>
+                        <ul class="actions">
+                            <li><a href="{{ $post.URL }}" class="button">{{ $post.Params.post_button_label }}</a></li>
+                        </ul>
+                    </footer>
+                </div>
+            </section>
+        {{ end }}
+            
+        {{ partial "markdownify-block" .section.content }}
+        {{ if .section.actions }}
+            <footer>
+                <ul class="actions special">
+                    {{ range $action := .section.actions }}
+                        <li><a href="{{ if strings.HasPrefix $action.url "#" }}{{ $action.url }}{{ else }}{{ $action.url | relURL }}{{ end }}" class="button{{ if $action.is_primary }} primary{{ end }}{{ if $action.is_scrolly }} scrolly{{ end }}">{{ $action.label }}</a></li>
+                    {{ end }}
+                </ul>
+            </footer>
+        {{ end }}
+    </div>
+</section>

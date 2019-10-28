@@ -1,0 +1,30 @@
+<!doctype html>
+<html>
+    <head>    
+        
+        <title>{{ if .Title }}{{ .Title }} - {{ end }}{{ .Site.Title }}</title>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+        <link rel="stylesheet" href="{{ (resources.Get "sass/main.scss" | resources.ToCSS (dict "indentWidth" 4 "outputStyle" "nested" "precision" 10 "targetPath" "assets/css/main.css")).Permalink }}" />
+        <link rel="stylesheet" href="{{ "assets/css/markdown-images.css" | relURL }}" />
+        
+    </head>
+    <body>
+        
+        {{ partial "header.html" . }}
+        {{ partial "menu.html" . }}
+        
+        <!-- Wrapper -->
+        <div id="wrapper">
+            {{ block "content" . }}{{ end }}
+            
+            {{ partial "footer.html" . }}
+        </div>
+        <!-- Scripts -->
+        <script src="{{ "assets/js/jquery.min.js" | relURL }}"></script>
+        <script src="{{ "assets/js/browser.min.js" | relURL }}"></script>
+        <script src="{{ "assets/js/breakpoints.min.js" | relURL }}"></script>
+        <script src="{{ "assets/js/util.js" | relURL }}"></script>
+        <script src="{{ "assets/js/main.js" | relURL }}"></script>
+    </body> 
+</html>

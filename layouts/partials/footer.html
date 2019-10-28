@@ -1,0 +1,21 @@
+<!-- Footer -->
+<section id="footer" class="wrapper split style2">
+    <div class="inner">
+        {{ if .Site.Data.social.enabled }}
+            {{ partial "social.html" . }}
+        {{ end }}
+        {{ if .Site.Data.footer.enable_contact_section }}
+            {{ partial "contact.html" . }}
+        {{ end }}
+    </div>
+    <div class="copyright">
+        <p>
+            {{ .Site.Data.footer.copyright | safeHTML }}
+            &nbsp;
+            {{ range $link := .Site.Data.footer.links }}
+                <a href="{{ $link.url }}" {{ if $link.new_window }}target="_blank" rel="noopener"
+                {{ end }}>{{ $link.text }}</a>.
+            {{ end }}
+        </p>
+    </div>
+</section>

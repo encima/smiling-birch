@@ -1,0 +1,18 @@
+<!-- Three -->
+<section class="wrapper style3 special">
+    <div class="inner">
+        <header>
+            <h2>{{ .section.title }}</h2>
+            {{ partial "markdownify-block" .section.content }}
+        </header>
+        {{ if .section.actions }}
+            <footer>
+                <ul class="actions special">
+                    {{ range $action := .section.actions }}
+                        <li><a href="{{ if strings.HasPrefix $action.url "#" }}{{ $action.url }}{{ else }}{{ $action.url | relURL }}{{ end }}" class="button big{{ if $action.is_primary }} primary{{ end }}{{ if $action.is_scrolly }} scrolly{{ end }}">{{ $action.label }}</a></li>
+                    {{ end }}
+                </ul>
+            </footer>
+        {{ end }}
+    </div>
+</section>
