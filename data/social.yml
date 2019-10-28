@@ -1,19 +1,13 @@
 enabled: true
-title: Magna lorem ipsum
-social_content: >-
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis dapibus rutrum
-  facilisis. Class aptent taciti sociosqu ad litora torquent per conubia nostra,
-  per inceptos himenaeos magna fames ac turpis egestas amet non lorem amet.
+title: ''
+social_content: ''
 social_links:
-  - title: Twitter
-    icon: fa-twitter
-    link_url: '#'
-  - title: Instagram
-    icon: fa-instagram
-    link_url: '#'
-  - title: Snapchat
-    icon: fa-snapchat-ghost
-    link_url: '#'
-  - title: GitHub
-    icon: fa-github
-    link_url: '#'
+  - icon: fa-twitter
+    link_url: 'https://twitter.com/encima27'
+    title: Twitter
+  - icon: fa-git-alt
+    link_url: 'https://sr.ht/~encima'
+    title: Sourcehut
+  - icon: fa-github
+    link_url: 'https://github.com/encima'
+    title: GitHub
